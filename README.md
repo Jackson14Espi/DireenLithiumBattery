@@ -1,2 +1,2 @@
-# Direen-Lithium-Battery
+# DireenLithiumBattery
 Direen Lithium Battery
