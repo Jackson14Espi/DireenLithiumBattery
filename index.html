@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direen Lithium Battery — Energía Continua</title>
+    <title>Direen Lithium Battery | Energía Ininterrumpida</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* VARIABLES DE COLORES Y CONFIGURACIÓN */
         :root {
-            --primary-orange: #f26624;
-            --primary-blue: #103054;
-            --primary-yellow: #f79221;
-            --bg-light-blue: #f0f4f8;
-            --bg-light-orange: #fff5f0;
-            --text-dark: #1F2937;
-            --text-muted: #4B5563;
+            --primary: #f26624; /* Naranja */
+            --secondary: #103054; /* Azul */
+            --accent: #f79221; /* Amarillo */
+            --text-main: #1F2937;
+            --text-light: #4B5563;
             --white: #FFFFFF;
+            --bg-alt: #fff8f5; /* Versión clara del naranja para fondos */
+            --bg-blue-light: #f0f4f8;
+            --border: #E5E7EB;
+            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
         }
 
-        /* RESET GENERAL */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -36,78 +36,416 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
             line-height: 1.6;
+            color: var(--text-main);
             background-color: var(--white);
-            overflow-x: hidden;
         }
 
         h1, h2, h3 {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.1;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-
+        /* Utilidades */
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* COMPONENTES REUTILIZABLES */
-        .btn {
-            display: inline-block;
-            padding: 18px 36px;
-            background-color: var(--primary-orange);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(242, 102, 36, 0.3);
-        }
-
-        .btn:hover {
-            background-color: var(--primary-yellow);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(247, 146, 33, 0.4);
-        }
-
-        .tag {
-            display: inline-block;
-            background: var(--bg-light-orange);
-            color: var(--primary-orange);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-
-        .divider {
-            width: 60px;
-            height: 4px;
-            background: var(--primary-yellow);
-            margin: 1.5rem 0;
-            border-radius: 2px;
-        }
-
-        section {
+        .section {
             padding: 80px 0;
         }
 
-        /* BOTÓN WHATSAPP FLOTANTE */
+        .section-alt {
+            background-color: var(--bg-alt);
+        }
+
+        .text-center { text-align: center; }
+
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 14px rgba(242, 102, 36, 0.39);
+        }
+
+        .btn-primary:hover {
+            background-color: #d9561d;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* Header / Nav */
+        header {
+            background: var(--white);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span { color: var(--primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            display: block;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a4a82 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+        }
+
+        .hero .accent {
+            color: var(--accent);
+        }
+
+        .hero p.sub {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .bullets {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .bullets li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bullets li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* Problema */
+        .section-label {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .section-desc {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 50px;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .problem-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .problem-card strong {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Solución */
+        .solution-box {
+            background: white;
+            border: 3px solid var(--primary);
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .tag {
+            background: var(--primary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            position: absolute;
+            top: -15px;
+            left: 50px;
+        }
+
+        /* Beneficios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-card {
+            display: flex;
+            gap: 20px;
+            background: var(--bg-blue-light);
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        .benefit-card .num {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        /* Pasos */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-num {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        /* Testimonios */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .testimonial .quote {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+
+        .testimonial .author {
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* About */
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background: var(--secondary);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        .about-avatar {
+            font-size: 4rem;
+            background: rgba(255,255,255,0.1);
+            width: 120px;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* Price Box */
+        .price-box {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .price-main {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin: 15px 0;
+        }
+
+        .price-compare {
+            text-align: left;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .price-compare li {
+            list-style: none;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+        }
+
+        /* FAQ */
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 15px;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        /* Final CTA */
+        .cta-box {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 60px 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        .cta-box h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .cta-box p { margin-bottom: 30px; font-size: 1.2rem; }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             bottom: 30px;
@@ -117,431 +455,191 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 30px;
             box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
             z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
             transition: var(--transition);
+            text-decoration: none;
         }
+
         .whatsapp-float:hover {
             transform: scale(1.1);
+            background-color: #128c7e;
         }
 
-        /* HERO SECTION */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, #0a1f3a 100%);
-            color: var(--white);
-            padding: 100px 0 120px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            right: -10%;
-            width: 400px;
-            height: 400px;
-            background: var(--primary-orange);
-            filter: blur(150px);
-            opacity: 0.15;
-            border-radius: 50%;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 span {
-            color: var(--primary-yellow);
-        }
-
-        .hero p.subtitle {
-            font-size: 1.25rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-
-        .bullets {
-            list-style: none;
-            margin-bottom: 2.5rem;
-        }
-
-        .bullets li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-        }
-
-        .bullets li::before {
-            content: '✓';
-            color: var(--primary-yellow);
-            font-weight: 900;
-            background: rgba(247, 146, 33, 0.15);
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            font-size: 0.8rem;
-        }
-
-        /* PROBLEMA SECTION */
-        .problema {
-            background-color: var(--white);
-        }
-
-        .pain-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .pain-card {
-            padding: 30px;
-            background: var(--white);
-            border: 1px solid #eee;
-            border-radius: 16px;
-            transition: var(--transition);
-        }
-
-        .pain-card:hover {
-            border-color: var(--primary-orange);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
-
-        .pain-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .pain-card strong {
-            display: block;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-blue);
-        }
-
-        /* SOLUCIÓN SECTION */
-        .solucion {
-            background-color: var(--primary-blue);
-            color: var(--white);
-        }
-
-        .solucion .producto-box {
-            background: rgba(255,255,255,0.05);
-            border-left: 5px solid var(--primary-orange);
-            padding: 40px;
-            border-radius: 0 16px 16px 0;
-            margin-top: 30px;
-        }
-
-        .solucion h2 { font-size: 2.5rem; }
-        .solucion .nombre {
-            font-size: 2rem;
-            color: var(--primary-yellow);
-            margin-bottom: 1rem;
-        }
-
-        /* BENEFICIOS SECTION */
-        .beneficios {
-            background-color: var(--white);
-        }
-
-        .ben-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-
-        .ben-card {
-            display: flex;
-            gap: 20px;
-            padding: 25px;
-            background: var(--bg-light-blue);
-            border-radius: 12px;
-        }
-
-        .ben-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--primary-blue);
-        }
-
-        /* PROCESO SECTION */
-        .como {
-            background-color: var(--bg-light-orange);
-        }
-
-        .pasos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .paso {
-            text-align: center;
-            position: relative;
-        }
-
-        .paso .num {
-            font-size: 4rem;
-            font-weight: 800;
-            color: rgba(242, 102, 36, 0.1);
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-
-        .paso h3 {
-            position: relative;
-            z-index: 2;
-            margin-bottom: 1rem;
-        }
-
-        /* TESTIMONIOS */
-        .testimonios {
-            background-color: var(--primary-blue);
-            color: var(--white);
-        }
-
-        .test-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .test-card {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .test-placeholder {
-            border: 2px dashed rgba(247, 146, 33, 0.4);
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-style: italic;
-        }
-
-        /* OFERTA */
-        .oferta {
-            background-color: var(--bg-light-blue);
-        }
-
-        .precio-box {
-            background: var(--white);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            border: 2px solid var(--primary-yellow);
-            max-width: 700px;
-            margin: 40px auto 0;
-            text-align: center;
-        }
-
-        .precio {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            margin: 20px 0;
-        }
-
-        /* FAQ */
-        .faq-item {
-            border-bottom: 1px solid #eee;
-            padding: 25px 0;
-        }
-
-        .faq-item h3 {
-            margin-bottom: 10px;
-            color: var(--primary-blue);
-        }
-
-        /* CTA FINAL */
-        .cta-final {
-            background: var(--primary-orange);
-            color: var(--white);
-            text-align: center;
-            padding: 100px 0;
-        }
-
-        .cta-final h2 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-final p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-
-        /* RESPONSIVE */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero h1 { font-size: 2.5rem; }
-            .hero p.subtitle, .bullets li { justify-content: center; margin: 0 auto 15px; }
-            .hero-img { order: -1; }
-            .precio-box { padding: 30px 20px; }
-            .precio { font-size: 2.2rem; }
-            section { padding: 60px 0; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links, .nav-cta { display: none; }
+            .about { flex-direction: column; text-align: center; padding: 30px; }
+            .section-title { font-size: 1.8rem; }
+            .hero-image { order: -1; }
+            .solution-box { padding: 30px 20px; }
+        }
+
+        footer {
+            background: #f9fafb;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--text-light);
         }
     </style>
 </head>
 <body>
 
-    <!-- BOTÓN WHATSAPP -->
-    <a href="https://wa.me/+18299949050" class="whatsapp-float" target="_blank">
-        <span>💬</span>
-    </a>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">⚡ DIREEN <span>LITHIUM</span></div>
+                <ul class="nav-links">
+                    <li><a href="#problema">Problema</a></li>
+                    <li><a href="#solucion">Solución</a></li>
+                    <li><a href="#beneficios">Beneficios</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                </ul>
+                <div class="nav-cta">
+                    <a href="https://wa.me/8299949050?text=Hola%2C%20quiero%20informacion" class="btn btn-outline" style="padding: 8px 20px; font-size: 0.9rem;">Contactar</a>
+                </div>
+            </nav>
+        </div>
+    </header>
 
-    <!-- HERO -->
+    <!-- HERO SECTION -->
     <section class="hero">
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <div class="tag" style="background: rgba(255,255,255,0.1); color: var(--primary-yellow);">Energía sin interrupciones</div>
-                    <h1>Tu electricidad, <span>continua</span> sin importar lo que pase</h1>
-                    <p class="subtitle">Baterías de litio, paneles solares e instalación profesional para hogares, empresas e industrias que no pueden permitirse quedarse sin luz.</p>
+                    <span class="section-label" style="color: var(--accent);">Direen Lithium Battery</span>
+                    <h1>Deja los apagones en el pasado. <span class="accent">Para siempre.</span></h1>
+                    <p class="sub">Energía limpia, continua y confiable para tu hogar, industria, yate o autocaravana — con baterías de litio y sistemas solares instalados por expertos desde 2019.</p>
                     <ul class="bullets">
-                        <li>Proyectos desde 1.5 kW hasta instalaciones solares de 40 kW</li>
-                        <li>Soluciones para casas, negocios, yates y furgonetas</li>
-                        <li>Servicio completo: equipo, instalación y soporte</li>
+                        <li>Independencia eléctrica total: tu energía, tus reglas</li>
+                        <li>Tecnología de litio superior: más ciclos y seguridad</li>
+                        <li>Todo incluido: diseño e instalación profesional</li>
                     </ul>
-                    <a href="https://wa.me/+18299949050?text=Hola%2C%20quiero%20informacion" class="btn">Solicitar asesoría gratuita ↗</a>
+                    <a href="https://wa.me/8299949050?text=Hola%2C%20quiero%20informacion" class="btn btn-primary">Solicita tu evaluación gratuita ↗</a>
                 </div>
-                <div class="hero-img">
-                    <img src="https://placehold.co/600x600/103054/FFFFFF?text=Instalación+Profesional+Direen" alt="Baterías de litio Direen">
+                <div class="hero-image">
+                    <img src="https://placehold.co/600x500/103054/FFFFFF?text=Batería+Litio+Premium+Direen" alt="Direen Lithium Battery">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- PROBLEMA -->
-    <section class="problema" id="problema">
+    <section id="problema" class="section">
         <div class="container">
-            <div class="tag">El problema</div>
-            <h2>¿Te suena familiar?</h2>
-            <div class="divider"></div>
-            <div class="pain-grid">
-                <div class="pain-card">
-                    <div class="icon">⚡</div>
-                    <strong>Los cortes de luz te cuestan dinero</strong>
-                    <p>Cada apagón es producción perdida, equipos dañados o clientes insatisfechos. El costo real no es el recibo, es lo que paras.</p>
+            <div class="text-center">
+                <span class="section-label">El problema</span>
+                <h2 class="section-title">¿Te suena familiar alguna de estas situaciones?</h2>
+                <p class="section-desc">No estás solo. Millones de hogares, negocios y propietarios enfrentan esto cada día.</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <span class="icon">🕯️</span>
+                    <strong>Apagones sin aviso</strong>
+                    <p>La luz se va cuando más la necesitas. El trabajo se detiene, los alimentos se pierden, la rutina colapsa.</p>
                 </div>
-                <div class="pain-card">
-                    <div class="icon">🔋</div>
-                    <strong>Tu inversor no aguanta lo que necesitas</strong>
-                    <p>Compraste algo que parecía suficiente, pero no dura, no rinde o simplemente no fue instalado bien.</p>
+                <div class="problem-card">
+                    <span class="icon">📈</span>
+                    <strong>Facturas imposibles</strong>
+                    <p>El costo de la energía sube mes a mes y tú pagas más por un servicio cada vez menos confiable.</p>
                 </div>
-                <div class="pain-card">
-                    <div class="icon">☀️</div>
-                    <strong>Pagas demasiado en electricidad</strong>
-                    <p>La factura sube cada mes y sientes que hay una solución solar, pero no sabes por dónde empezar ni en quién confiar.</p>
+                <div class="problem-card">
+                    <span class="icon">⚠️</span>
+                    <strong>Equipos dañados</strong>
+                    <p>Cortes y subidas de tensión arruinan electrodomésticos, maquinaria industrial o equipos de navegación.</p>
                 </div>
-                <div class="pain-card">
-                    <div class="icon">🚢</div>
-                    <strong>En el yate o la van, la energía es un dolor de cabeza</strong>
-                    <p>Vivir o navegar off-grid exige soluciones específicas. Los sistemas genéricos fallan justo cuando más los necesitas.</p>
+                <div class="problem-card">
+                    <span class="icon">🔌</span>
+                    <strong>Dependencia total</strong>
+                    <p>Si la red falla, tú fallas. Sin alternativa. Sin plan B. Sin control sobre lo más básico de tu vida.</p>
                 </div>
-                <div class="pain-card">
-                    <div class="icon">🔧</div>
-                    <strong>Encontrar a alguien confiable es casi imposible</strong>
-                    <p>Hay muchos vendedores, pero pocos que instalen, expliquen y respondan cuando algo no funciona.</p>
+            </div>
+            <div class="problem-card" style="margin-top: 20px; display: flex; align-items: center; gap: 20px;">
+                <span class="icon" style="margin-bottom: 0;">😓</span>
+                <div>
+                    <strong>Soluciones parciales que no resuelven nada</strong>
+                    <p>Ya probaste con generadores de gasolina ruidosos, baterías de plomo que duran poco y sistemas que nunca funcionaron del todo. Gastaste dinero y el problema sigue igual.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SOLUCIÓN -->
-    <section class="solucion">
+    <!-- SOLUCION -->
+    <section id="solucion" class="section section-alt">
         <div class="container">
-            <div class="tag" style="background: rgba(242,102,36,0.2); color: white;">La solución</div>
-            <h2>Presentamos Direen</h2>
-            <p style="font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin-top: 15px;">No solo vendemos equipos. Diseñamos y entregamos tu sistema completo de energía — desde el producto hasta la puesta en marcha.</p>
+            <div class="text-center">
+                <span class="section-label">La solución</span>
+                <h2 class="section-title">Existe una solución real. Y ya la instalamos en más de 100 proyectos.</h2>
+            </div>
             
-            <div class="producto-box">
-                <div class="nombre">Direen Lithium Battery</div>
-                <p>Somos especialistas en <strong>baterías de litio para inversor</strong>, paneles solares, inversores convencionales y solares, y su instalación completa. Trabajamos con propietarios de viviendas, empresas, industrias, yates y furgonetas que necesitan una fuente de electricidad continua, eficiente y duradera.</p>
-                <p style="margin-top: 15px; font-weight: 600; color: var(--primary-yellow);">El resultado: servicio eléctrico ininterrumpido, con equipos de calidad y respaldo real.</p>
+            <div class="solution-box">
+                <span class="tag">DIREEN LITHIUM BATTERY</span>
+                <h3 style="margin-bottom: 20px; color: var(--secondary);">Sistemas de energía solar y de litio llave en mano</h3>
+                <p style="margin-bottom: 15px;">Diseñamos, suministramos e instalamos sistemas completos de baterías de litio e inversores solares — desde equipos para hogares hasta proyectos industriales de gran escala.</p>
+                <p><strong>Para quién:</strong> Hogares, industrias, propietarios de yates y autocaravanas que quieren dejar de depender de la red eléctrica.</p>
+                <p style="margin-top: 15px;"><strong>Qué obtienes:</strong> Independencia eléctrica real. Energía disponible 24/7, sin cortes, sin ruido y sin costos desbocados — respaldada por tecnología de litio de alta calidad.</p>
             </div>
         </div>
     </section>
 
     <!-- BENEFICIOS -->
-    <section class="beneficios">
+    <section id="beneficios" class="section">
         <div class="container">
-            <div class="tag">Por qué elegirnos</div>
-            <h2>Lo que obtienes con Direen</h2>
-            <div class="divider"></div>
-            <div class="ben-grid">
-                <div class="ben-card">
-                    <div style="font-size: 1.5rem;">⭐</div>
-                    <div>
-                        <h3>Energía garantizada</h3>
-                        <p>Tu sistema funciona aunque la red falle, sin interrupciones ni pérdidas.</p>
+            <div class="text-center">
+                <span class="section-label">Beneficios</span>
+                <h2 class="section-title">Lo que cambia cuando trabajas con nosotros</h2>
+                <p class="section-desc">No solo vendemos equipos, vendemos tranquilidad y ahorro a largo plazo.</p>
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="num">01</div>
+                    <div class="content">
+                        <strong>Energía ininterrumpida</strong>
+                        <p>Tu sistema sigue funcionando aunque la red falle. Sin pausas, sin pérdidas.</p>
                     </div>
                 </div>
-                <div class="ben-card">
-                    <div style="font-size: 1.5rem;">🏆</div>
-                    <div>
-                        <h3>Equipos de calidad real</h3>
-                        <p>Solo instalamos baterías y paneles que cumplen lo que prometen, sin recortes ocultos.</p>
+                <div class="benefit-card">
+                    <div class="num">02</div>
+                    <div class="content">
+                        <strong>Baterías de larga duración</strong>
+                        <p>Más ciclos de carga, menor degradación y mayor seguridad que las de plomo.</p>
                     </div>
                 </div>
-                <div class="ben-card">
-                    <div style="font-size: 1.5rem;">🛠️</div>
-                    <div>
-                        <h3>Instalación profesional</h3>
-                        <p>Nuestro equipo instala correctamente desde el primer día, sin errores que cuesten caro después.</p>
+                <div class="benefit-card">
+                    <div class="num">03</div>
+                    <div class="content">
+                        <strong>Ahorro real</strong>
+                        <p>Tu sistema genera, almacena y reduce lo que le pagas a la compañía eléctrica.</p>
                     </div>
                 </div>
-                <div class="ben-card">
-                    <div style="font-size: 1.5rem;">📐</div>
-                    <div>
-                        <h3>Solución a medida</h3>
-                        <p>Diseñamos el proyecto según tu consumo real, tu espacio y tu presupuesto.</p>
+                <div class="benefit-card">
+                    <div class="num">04</div>
+                    <div class="content">
+                        <strong>Solución a tu medida</strong>
+                        <p>Proyectos desde 1.5 kW hasta 40 kW, adaptados a tu consumo real.</p>
                     </div>
                 </div>
-                <div class="ben-card">
-                    <div style="font-size: 1.5rem;">📈</div>
-                    <div>
-                        <h3>Escalable a cualquier tamaño</h3>
-                        <p>Desde un sistema de respaldo de 1.5 kW hasta solares industriales de 40 kW.</p>
+                <div class="benefit-card">
+                    <div class="num">05</div>
+                    <div class="content">
+                        <strong>Todo en un solo proveedor</strong>
+                        <p>Baterías, inversores, paneles e instalación — sin terceros ni dolores de cabeza.</p>
                     </div>
                 </div>
-                <div class="ben-card">
-                    <div style="font-size: 1.5rem;">🤝</div>
-                    <div>
-                        <h3>Servicio y disponibilidad</h3>
-                        <p>Respondemos antes, durante y después del proyecto. No desaparecemos tras la venta.</p>
+                <div class="benefit-card">
+                    <div class="num">06</div>
+                    <div class="content">
+                        <strong>Respaldo de expertos</strong>
+                        <p>Más de 6 años instalando proyectos exitosos. Sabemos qué funciona.</p>
                     </div>
                 </div>
             </div>
@@ -549,140 +647,152 @@
     </section>
 
     <!-- COMO FUNCIONA -->
-    <section class="como">
+    <section class="section section-alt">
         <div class="container">
-            <div class="tag">El proceso</div>
-            <h2 style="text-align: center;">Así de simple es empezar</h2>
-            <div class="pasos">
-                <div class="paso">
-                    <div class="num">01</div>
-                    <h3>Cuéntanos tu situación</h3>
-                    <p>Nos dices qué necesitas: tipo de instalación, consumo aproximado y objetivos. Sin compromisos.</p>
+            <div class="text-center">
+                <span class="section-label">Proceso</span>
+                <h2 class="section-title">Tres pasos para tu independencia eléctrica</h2>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <strong>Evaluamos tu caso</strong>
+                    <p>Diseñamos el sistema ideal para tu consumo y espacio sin compromisos.</p>
                 </div>
-                <div class="paso">
-                    <div class="num">02</div>
-                    <h3>Recibe tu propuesta</h3>
-                    <p>Diseñamos el sistema ideal para tu caso, con equipos específicos, presupuesto claro y plazo de instalación.</p>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <strong>Suministramos equipos</strong>
+                    <p>Litio, inversores (3-12 kW) y paneles de primera calidad bajo un mismo techo.</p>
                 </div>
-                <div class="paso">
-                    <div class="num">03</div>
-                    <h3>Instalamos y arrancamos</h3>
-                    <p>Nuestro equipo ejecuta la instalación completa. Tú solo disfrutas de electricidad continua desde el primer día.</p>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <strong>Instalación completa</strong>
+                    <p>Nuestro equipo técnico te deja funcionando para que el sistema trabaje por ti.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- TESTIMONIOS -->
-    <section class="testimonios">
+    <section class="section">
         <div class="container">
-            <div class="tag" style="background: rgba(255,255,255,0.1); color: var(--primary-yellow);">Testimonios</div>
-            <h2>Lo que dicen nuestros clientes</h2>
-            <div class="divider"></div>
-            <div class="test-grid">
-                <div class="test-card">
-                    <div style="color: var(--primary-yellow); margin-bottom: 10px;">★★★★★</div>
-                    <div class="test-placeholder">
-                        "Excelente servicio. Instalaron un sistema de 10kW en mi negocio y ya no sufrimos por los apagones."<br><br>
-                        <strong>Juan Pérez — Comercio Local</strong>
-                    </div>
+            <div class="text-center">
+                <span class="section-label">Testimonios</span>
+                <h2 class="section-title">Lo que dicen quienes ya dieron el paso</h2>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="quote">"Instalé el sistema en mi casa de campo y me olvidé de que los apagones existen. Excelente servicio post-venta."</p>
+                    <div class="author">— Juan Pérez, Santo Domingo · Residencial</div>
                 </div>
-                <div class="test-card">
-                    <div style="color: var(--primary-yellow); margin-bottom: 10px;">★★★★★</div>
-                    <div class="test-placeholder">
-                        "La mejor inversión para mi casa de playa. Las baterías de litio Direen duran muchísimo."<br><br>
-                        <strong>María García — Propietaria</strong>
-                    </div>
+                <div class="testimonial">
+                    <p class="quote">"Para mi negocio era vital no perder la cadena de frío. Con las baterías de litio de Direen dormimos tranquilos."</p>
+                    <div class="author">— María G., Santiago · Industrial</div>
                 </div>
-                <div class="test-card">
-                    <div style="color: var(--primary-yellow); margin-bottom: 10px;">★★★★★</div>
-                    <div class="test-placeholder">
-                        "Instalación limpia y rápida en mi embarcación. Por fin energía confiable en el mar."<br><br>
-                        <strong>Carlos Ruiz — Capitán de Yate</strong>
-                    </div>
+                <div class="testimonial">
+                    <p class="quote">"La mejor inversión para mi autocaravana. Energía de sobra para mis viajes sin depender de campings."</p>
+                    <div class="author">— Carlos R., Puerto Plata · Móvil</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SOBRE NOSOTROS -->
-    <section class="sobremi">
-        <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
-            <div>
-                <img src="https://placehold.co/600x500/f26624/FFFFFF?text=Sobre+Direen" alt="Equipo Direen">
-            </div>
-            <div>
-                <div class="tag">Quiénes somos</div>
-                <h2>Direen, energía que no falla</h2>
-                <div class="divider"></div>
-                <p>En Direen llevamos años diseñando e instalando sistemas de energía para clientes que no pueden permitirse interrupciones. Hemos trabajado en proyectos de respaldo desde 1.5 kW para hogares y pequeños negocios hasta instalaciones solares de 40 kW para industrias y grandes superficies.</p>
-                <p style="margin-top: 15px;">No somos distribuidores genéricos: somos especialistas que conocen cada proyecto de principio a fin. Nuestra diferencia está en la calidad de los equipos que elegimos, en la disponibilidad cuando nos necesitas y en el servicio que no termina cuando firmamos el contrato.</p>
+    <section class="section section-alt">
+        <div class="container">
+            <div class="about">
+                <div class="about-avatar">⚡</div>
+                <div class="about-text">
+                    <h3 style="margin-bottom: 10px;">¿Quiénes están detrás de Direen?</h3>
+                    <p><strong>Direen Lithium Battery — Expertos en energía desde 2019</strong></p>
+                    <p>Llevamos más de 6 años diseñando e instalando proyectos de energía solar y almacenamiento con litio. No somos intermediarios: conocemos cada equipo que vendemos, instalamos con nuestro propio equipo técnico y acompañamos a nuestros clientes antes, durante y después.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- OFERTA -->
-    <section class="oferta" id="precio">
+    <!-- PRECIO -->
+    <section class="section">
         <div class="container">
-            <div style="text-align: center;">
-                <div class="tag">Tu inversión</div>
-                <h2>¿Cuánto cuesta?</h2>
-                <div class="divider" style="margin: 1.5rem auto;"></div>
-                <p style="max-width: 600px; margin: 0 auto; color: var(--text-muted);">Cada proyecto es único. No cobramos lo mismo por un sistema residencial de respaldo que por una planta solar industrial. Lo que sí garantizamos es calidad y soporte.</p>
+            <div class="text-center">
+                <span class="section-label">Inversión</span>
+                <h2 class="section-title">Una inversión que se paga sola</h2>
             </div>
             
-            <div class="precio-box">
-                <p style="text-decoration: line-through; color: #999;">Instalación genérica + compra por separado: 2-3x más caro</p>
-                <div class="precio">Precio según proyecto</div>
-                <p class="nota">Solicita tu cotización sin compromiso. Te enviamos una propuesta detallada con equipos, costos y plazo de entrega — sin letra pequeña.</p>
-                <br>
-                <a href="https://wa.me/+18299949050?text=Hola%2C%20quiero%20cotizar%20un%20proyecto" class="btn">Solicitar cotización gratis ↗</a>
+            <div class="price-box">
+                <span class="section-label">Cotización personalizada</span>
+                <div class="price-main">Según proyecto a medida</div>
+                <p class="section-desc">Cada instalación es distinta, por eso cada propuesta es a medida. Pero aquí está lo que sí es fijo: <strong>el valor que obtienes supera con creces lo que inviertes.</strong></p>
+                
+                <ul class="price-compare">
+                    <li>❌ Un generador te cuesta más en combustible cada año.</li>
+                    <li>❌ Un apagón industrial puede costar miles en producción perdida.</li>
+                    <li>❌ Las baterías de plomo fallan en 2 años y necesitan mantenimiento.</li>
+                    <li>✅ Con litio, ahorras, proteges tus equipos y no dependes de nadie.</li>
+                </ul>
+                <a href="https://wa.me/8299949050?text=Hola%2C%20quiero%20informacion" class="btn btn-primary">Obtén tu presupuesto hoy</a>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section class="faq">
+    <section id="faq" class="section section-alt">
         <div class="container">
-            <div class="tag">Preguntas frecuentes</div>
-            <h2>Lo que nos preguntan siempre</h2>
-            <div class="divider"></div>
-            <div style="max-width: 800px;">
+            <div class="text-center">
+                <span class="section-label">FAQ</span>
+                <h2 class="section-title">Resolvemos tus dudas</h2>
+            </div>
+            
+            <div class="faq">
                 <div class="faq-item">
-                    <h3>¿Cuánto tiempo tarda la instalación?</h3>
-                    <p>Depende del tamaño del sistema. Una instalación residencial puede estar lista en 1–2 días. Proyectos industriales toman más tiempo según el alcance, pero siempre te damos un cronograma claro antes de empezar.</p>
+                    <strong>¿Funciona si vivo en una zona con muchos apagones?</strong>
+                    <p>Exactamente para eso está diseñado. El sistema almacena energía cuando hay suministro y la entrega cuando la red falla. Tú ni lo notas.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>¿Puedo combinar baterías de litio con paneles solares?</h3>
-                    <p>Sí, y es la combinación más eficiente. Los paneles generan energía durante el día y las baterías la almacenan para que tengas suministro continuo incluso de noche.</p>
+                    <strong>¿Cuánto tiempo dura una batería de litio?</strong>
+                    <p>Duran entre 3.000 y 6.000 ciclos. En uso normal, duran más de 10 años sin degradación significativa.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>¿También instalan en yates y furgonetas?</h3>
-                    <p>Absolutamente. Tenemos experiencia en instalaciones off-grid para embarcaciones y vehículos de vida móvil. Son sistemas específicos que diseñamos según el espacio y el consumo real.</p>
+                    <strong>¿Puedo empezar con algo pequeño y ampliarlo?</strong>
+                    <p>Sí. Diseñamos sistemas escalables desde 1.5 kW. Puedes ampliar cuando quieras sin reemplazar nada.</p>
                 </div>
                 <div class="faq-item">
-                    <h3>¿Qué pasa si algo falla después de la instalación?</h3>
-                    <p>Respondemos. No desaparecemos tras la instalación. Contamos con servicio técnico y garantía en equipos. Si hay un problema, lo resolvemos.</p>
+                    <strong>¿También trabajan con yates y autocaravanas?</strong>
+                    <p>Absolutamente. Tenemos experiencia en instalaciones móviles y marinas donde el peso y la eficiencia son clave.</p>
+                </div>
+                <div class="faq-item">
+                    <strong>¿Puedo usar mi inversor actual?</strong>
+                    <p>En la mayoría de los casos sí. Revisamos la compatibilidad de tu equipo actual para recomendarte la mejor solución.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA FINAL -->
-    <section class="cta-final">
+    <!-- FINAL CTA -->
+    <section class="section">
         <div class="container">
-            <h2>Deja de depender de la red.<br>Empieza hoy.</h2>
-            <p>Cada día sin un sistema confiable es un día expuesto a cortes, pérdidas y costos evitables.</p>
-            <a href="https://wa.me/+18299949050?text=Hola%2C%20quiero%20mi%20sistema%20ahora" class="btn" style="background-color: var(--primary-blue); box-shadow: 0 4px 15px rgba(0,0,0,0.2);">Quiero mi sistema ahora ↗</a>
-            <p style="margin-top: 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7;">Proyectos limitados por mes — consulta disponibilidad</p>
+            <div class="cta-box">
+                <h2>El próximo apagón ya no tiene que afectarte.</h2>
+                <p>Cada día que esperas es un día más dependiendo de una red que no controlas. Da el primer paso hoy.</p>
+                <a href="https://wa.me/8299949050?text=Hola%2C%20quiero%20informacion" class="btn btn-white">Solicita tu evaluación gratuita ↗</a>
+                <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.9;">Sin costo. Sin compromiso. Solo claridad sobre lo que necesitas.</p>
+            </div>
         </div>
     </section>
 
-    <footer style="background: #0a1f3a; color: white; padding: 40px 0; text-align: center; font-size: 0.9rem;">
+    <footer>
         <div class="container">
-            <p>&copy; 2024 Direen Lithium Battery. Todos los derechos reservados.</p>
+            <p>⚡ <strong>Direen Lithium Battery</strong> - Desde 2019 transformando la energía.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px;">© 2024 Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/8299949050" class="whatsapp-float" target="_blank">
+        <svg width="35" height="35" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.63 1.438h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
 
 </body>
 </html>
