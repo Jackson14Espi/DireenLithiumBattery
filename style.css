@@ -63,7 +63,7 @@ h1, h2, h3 { font-family: 'Poppins', sans-serif; font-weight: 700; color: var(--
     z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 .nav-container { display: flex; justify-content: space-between; align-items: center; }
-.logo img { height: 50px; width: auto; }
+.logo img { height: 50px; width: 120%; }
 .nav-links { display: flex; list-style: none; gap: 20px; }
 .nav-links a { text-decoration: none; color: var(--secondary); font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
 .nav-links a:hover { color: var(--primary); }
